@@ -69,4 +69,11 @@ The section performs `Task 2` by using regular expressions to get all feature re
 This section performs `Task 3`. The `Labels` column is an integer column that acts like a point to the `activites` dataset (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING). This section simple adds these values to the dataset based on the `Labels` column by using `merge` function `dataset_withActivities <- merge(activities, dataset , by="Labels", all.x=TRUE)`. It then sorts the new dataset by the `Labels` and `Subject` columns
 
 
-### 6 
+### 6 Renaming Variables
+This section performs `Task 4` by simply remaining some column headers with more descriptive names
+
+### 7 Creating new data set
+This section performs `Task 5` by subsetting out the measures in the dataset `dataset_withActivities[, 4:ncol(dataset_withActivities)]` and using the `aggregate` function based on the `mean` function to caluclate the averages by subject `Subject = dataset_withActivities$Subject` and activity `Activities = dataset_withActivities$Activities`
+
+### 8 Output
+This section outputs the new tidy data to a text file `TidyData.txt`
