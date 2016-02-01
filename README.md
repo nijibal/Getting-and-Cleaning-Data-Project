@@ -45,3 +45,19 @@ trainSet <- read.table("./Project/UCI HAR Dataset/train/X_train.txt", header = F
 trainLabels <- read.table("./Project/UCI HAR Dataset/train/y_train.txt", header = FALSE)
 trainSubject <- read.table("./Project/UCI HAR Dataset/train/subject_train.txt", header = FALSE)
 ```
+
+### 3 Merging into one dataset
+This section performs `Task 1` by merging all the test and training datasets into one big dataset. It achieves this in two steps:
+  1.  Merging matching training datasets to test datasets by simpling add the test rows to the training rows. At the end of this face only three (3) datasets will exist - features (mergedSet), activities (mergedLabels) and subjects (mergedSubject)
+```
+## Merging test to training datasets (Row Binding)
+mergedSet <- rbind(testSet, trainSet)
+mergedLabels <- rbind(testLabels, trainLabels)
+mergedSubject <- rbind(testSubject, trainSubject)
+```
+  2.  Merging the resulting datasets by concatenating the columns to one another
+```
+## Merging the merged datasets into one dataset (Column Binding)
+dataset <- cbind(mergedSubject, mergedLabels, mergedSet)
+```
+This section also takes care of renaming some column headers so as to make the columns more readable
