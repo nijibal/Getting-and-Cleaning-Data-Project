@@ -2,7 +2,7 @@
 Below are the variable definition used in the `run_analysis.R` code and tidy data (For the definitions of the original data please download the original zip file)
 
 ## Code Variables
-  * activities - 
+activities
  ```
  data.frame':	6 obs. of  2 variables:
  $ Labels    : int  1 2 3 4 5 6
