@@ -27,7 +27,7 @@ This section simple uses the library command in R to load required libraries in 
 `library(plyr)`
 
 ### 2 Loading variables
-This section creates the `Project` directory if it doesn't already exist and extracts the dataset into that directory `unzip("./Dataset.zip",exdir="./Project")`. It then load the test datasets, training datasets, features dataset and activities dataset into separate variables
+This section creates the `Project` directory if it doesn't already exist and extracts the dataset into that directory `unzip("./Dataset.zip",exdir="./Project")`. It then loads the test datasets, training datasets, features dataset and activities dataset into separate variables
 ```
 ## Loading features and activities
 activities <- read.table("./Project/UCI HAR Dataset/activity_labels.txt", header = FALSE)
@@ -61,3 +61,12 @@ mergedSubject <- rbind(testSubject, trainSubject)
 dataset <- cbind(mergedSubject, mergedLabels, mergedSet)
 ```
 This section also takes care of renaming some column headers so as to make the columns more readable
+
+### 4 Extracting Mean and Standard Deviation Columns for each measurement
+The section performs `Task 2` by using regular expressions to get all feature references with the words `mean()` and `std()` - `featuresMeanStd <- grep("mean\\(\\)|std\\(\\)",features$V2, value=TRUE)`. It then creates a new vector of dataset names based on the mean and standard deviation features found `subsetnames <- c("Subject", "Labels", featuresMeanStd)` (this will allow the subset to contain the Subject and Label columns). Finally it uses the vector to create a new dataset that only contains values of what was found along with Subject and Label columns `datasubset <- subset(dataset,select=subsetnames)`
+
+### 5 Adding the Activities Name to the dataset
+This section performs `Task 3`. The `Labels` column is an integer column that acts like a point to the `activites` dataset (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING). This section simple adds these values to the dataset based on the `Labels` column by using `merge` function `dataset_withActivities <- merge(activities, dataset , by="Labels", all.x=TRUE)`. It then sorts the new dataset by the `Labels` and `Subject` columns
+
+
+### 6 
