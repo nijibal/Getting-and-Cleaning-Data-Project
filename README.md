@@ -28,16 +28,20 @@ This section simple uses the library command in R to load required libraries in 
 
 ### 2 Loading variables
 This section creates the `Project` directory if it doesn't already exist and extracts the dataset into that directory `unzip("./Dataset.zip",exdir="./Project")`. It then load the test datasets, training datasets, features dataset and activities dataset into separate variables
-```## Loading features and activities
+```
+## Loading features and activities
 activities <- read.table("./Project/UCI HAR Dataset/activity_labels.txt", header = FALSE)
-features <- read.table("./Project/UCI HAR Dataset/features.txt", header = FALSE)```
-
-```## Loading test data into variables
+features <- read.table("./Project/UCI HAR Dataset/features.txt", header = FALSE)
+```
+```
+## Loading test data into variables
 testSet <- read.table("./Project/UCI HAR Dataset/test/X_test.txt", header = FALSE)
 testLabels <- read.table("./Project/UCI HAR Dataset/test/y_test.txt", header = FALSE)
-testSubject <- read.table("./Project/UCI HAR Dataset/test/subject_test.txt", header = FALSE)```
-
-```## Loading training data into variables
+testSubject <- read.table("./Project/UCI HAR Dataset/test/subject_test.txt", header = FALSE)
+```
+```
+## Loading training data into variables
 trainSet <- read.table("./Project/UCI HAR Dataset/train/X_train.txt", header = FALSE)
 trainLabels <- read.table("./Project/UCI HAR Dataset/train/y_train.txt", header = FALSE)
-trainSubject <- read.table("./Project/UCI HAR Dataset/train/subject_train.txt", header = FALSE)```
+trainSubject <- read.table("./Project/UCI HAR Dataset/train/subject_train.txt", header = FALSE)
+```
