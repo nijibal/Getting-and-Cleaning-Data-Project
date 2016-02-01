@@ -15,3 +15,15 @@ The code run_analysis.R performs the following tasks:
   3.  Uses descriptive activity names to name the activities in the data set
   4.  Appropriately labels the data set with descriptive variable names.
   5.  From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+## Steps and Assumptions
+Simply run the run_analysis.R script to perform the tasks listed above. The major assumption in the script is that the Samsung data already sits in the R working directory (Based to the question design)
+
+## How the Script Works
+The Script is broken down in 8 major sections to achieve the tasks required
+
+### 1 Loading Libraries
+This section simple uses the library command in R to load required libraries in this case only the plyr library is used
+
+### 2 Loading variables
+This section creates the Project directory if it doesn't already exist and extracts the dataset into that directory. It then load the test datasets, training datasets, features dataset and activities dataset into separate variables
